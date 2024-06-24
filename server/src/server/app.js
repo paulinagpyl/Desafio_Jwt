@@ -2,7 +2,6 @@ import express from 'express'
 import cors from 'cors'
 
 import { serverLog } from './middlewares/serverLog.middleware.js'
-// import { medicamentosRouter, personalRouter, usuariosRouter, errors } from './routers/index.js'
 import {usuariosRouter, errors } from './routers/index.js'
 
 const app = express()
@@ -14,8 +13,6 @@ app.use(express.json())
 app.use(serverLog)
 
 app.use(usuariosRouter)
-// app.use(medicamentosRouter)
-// app.use(personalRouter)
 app.use(errors)
 
 app.listen(PORT, () => console.log('Server UP!!'))
