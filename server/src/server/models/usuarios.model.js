@@ -5,4 +5,4 @@ export const register = ({ email, password, rol, lenguage }) => db('INSERT INTO 
 
 export const login = ({ email, password }) => db('SELECT email FROM usuarios WHERE email = $1 and password = $2;', [email, password])
 
-export const findUser = (id) =>  db('SELECT email, rol, lenguage FROM usuarios WHERE id = $1;', [id])
+export const findUser = (email) =>  db.query('SELECT email, rol, lenguage FROM usuarios WHERE email = $1;', [email])
