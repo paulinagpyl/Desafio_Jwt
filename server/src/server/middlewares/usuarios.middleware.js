@@ -13,7 +13,8 @@ export const authToken = (req, res, next) => {
     }
 
     try {
-        jwtVerify(token) && next() //si falla es error, sino no devuelve nada
+        req.user= jwtVerify(token)
+        next() //si falla es error, sino no devuelve nada
     } catch (error) {
         res.status(401).json({ status: false, code: 401, message: 'Token inválido' })
     }
